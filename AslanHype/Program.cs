@@ -82,13 +82,13 @@ namespace AslanHype
                             var conePoint2 = playerPosition + 800 * direction.Rotated(currentAngel2);
                             var conePoint13D = Drawing.WorldToScreen(conePoint1.To3D());
                             var conePoint23D = Drawing.WorldToScreen(conePoint2.To3D());
-                            Drawing.DrawLine(currentScreenPlayer.X, currentScreenPlayer.Y, conePoint13D.X, conePoint13D.Y, 2, Color.Green);
-                            Drawing.DrawLine(currentScreenPlayer.X, currentScreenPlayer.Y, conePoint23D.X,  conePoint23D.Y,2, Color.Green);
+                            Drawing.DrawLine(currentScreenPlayer.X, currentScreenPlayer.Y, conePoint13D.X, conePoint13D.Y, 2, Color.Yellow);
+                            Drawing.DrawLine(currentScreenPlayer.X, currentScreenPlayer.Y, conePoint23D.X,  conePoint23D.Y,2, Color.Yellow);
                             Render.Circle.DrawCircle(ObjectManager.Player.Position,800, Color.Green, 2);
                         }
                         if (hero.Distance(ObjectManager.Player.Position) < 2000 && hero.Distance(ObjectManager.Player.Position) >= 1000)
                         {
-                            Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 2, Color.Yellow);
+                            Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 2, Color.Green);
             
                             
                         }
