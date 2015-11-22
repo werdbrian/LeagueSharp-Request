@@ -70,15 +70,15 @@ namespace AslanHype
                         {
                             Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 1, Color.Green);
                             var playerPosition = ObjectManager.Player.Position.To2D();
-                            var currentScreenPlayer = Drawing.WorldToScreen(ObjectManager.Player.Position);
+                            var currentScreenPlayer = Drawing.WorldToScreen(hero.Position);
                             var currentAngel1 = 90 * (float) Math.PI / 180;
                             var currentAngel2 = (360-90) * (float) Math.PI / 180;
                             var conePoint1 = playerPosition + 800 * direction.Rotated(currentAngel1);
-                            var conePoint2 = playerPosition + 800 * direction.Rotated(conePoint2);
+                            var conePoint2 = playerPosition + 800 * direction.Rotated(currentAngel2);
                             var conePoint13D = Drawing.WorldToScreen(conePoint1.To3D());
                             var conePoint23D = Drawing.WorldToScreen(conePoint2.To3D());
-                            Drawing.DrawLine(hero.X, hero.Y, conePoint13D.X, conePoint13D.Y, 2, Color.Green);
-                            Drawing.DrawLine(hero.X, hero.Y, conePoint23D.X,  conePoint23D.Y,2, Color.Green);
+                            Drawing.DrawLine(currentScreenPlayer.X, currentScreenPlayer.Y, conePoint13D.X, conePoint13D.Y, 2, Color.Green);
+                            Drawing.DrawLine(currentScreenPlayer.X, currentScreenPlayer.Y, conePoint23D.X,  conePoint23D.Y,2, Color.Green);
                             Render.Circle.DrawCircle(ObjectManager.Player.Position,abilRange, drawColor, lineWidth);
                         }
                         if (hero.Distance(ObjectManager.Player.Position) < 2000 && hero.Distance(ObjectManager.Player.Position) >= 1000)
