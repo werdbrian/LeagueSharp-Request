@@ -75,6 +75,7 @@ namespace AslanHype
                         if (hero.Distance(ObjectManager.Player.Position) <= 8000 && hero.Distance(ObjectManager.Player.Position) > 1500 )
                         {
                             Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 1, Color.Green);
+                            var _line = new Vector2( Drawing.WorldToScreen(ObjectManager.Player.Position),Drawing.WorldToScreen(hero.Position);
                             var currentScreenPlayer = Drawing.WorldToScreen(hero.Position);
                             var direction = ObjectManager.Player.Direction.To2D().Perpendicular();
                             var playerPosition = ObjectManager.Player.Position.To2D();
