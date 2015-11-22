@@ -75,16 +75,18 @@ namespace AslanHype
                         if (hero.Distance(ObjectManager.Player.Position) <= 8000 && hero.Distance(ObjectManager.Player.Position) > 1500 )
                         {
                             Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 1, Color.Green);
-                            var _line = new Vector2( Drawing.WorldToScreen(ObjectManager.Player.Position),Drawing.WorldToScreen(hero.Position));
-                            var currentScreenPlayer = Drawing.WorldToScreen(hero.Position);
+                            
+                            var currentScreenEnemy = Drawing.WorldToScreen(ObjectManager.Player.Position);
+                            var currentScreenChamp = Drawing.WorldToScreen(hero.Position);
+                            var _line = new Vector2(currentScreenEnemy.X-currentScreenChamp.X,currentScreenEnemy.Y-currentScreenChamp.Y);
                             var direction = ObjectManager.Player.Direction.To2D().Perpendicular();
                             var playerPosition = ObjectManager.Player.Position.To2D();
-                            var conePoint1 = playerPosition + 800 * direction.Rotated(currentAngel1);
-                            var conePoint2 = playerPosition + 800 * direction.Rotated(currentAngel2);
+                            var conePoint1 = playerPosition + 800 * _line.Rotated(currentAngel1);
+                            var conePoint2 = playerPosition + 800 * _line.Rotated(currentAngel2);
                             var conePoint13D = Drawing.WorldToScreen(conePoint1.To3D());
                             var conePoint23D = Drawing.WorldToScreen(conePoint2.To3D());
-                            Drawing.DrawLine(currentScreenPlayer.X, currentScreenPlayer.Y, conePoint13D.X, conePoint13D.Y, 2, Color.Yellow);
-                            Drawing.DrawLine(currentScreenPlayer.X, currentScreenPlayer.Y, conePoint23D.X,  conePoint23D.Y,2, Color.Yellow);
+                            Drawing.DrawLine(currentScreenEnemy.X, currentScreenEnemy.Y, conePoint13D.X, conePoint13D.Y, 2, Color.Yellow);
+                            Drawing.DrawLine(currentScreenEnemy.X, currentScreenEnemy.Y, conePoint23D.X,  conePoint23D.Y,2, Color.Yellow);
                             Render.Circle.DrawCircle(ObjectManager.Player.Position,800, Color.Green, 2);
                         }
                         if (hero.Distance(ObjectManager.Player.Position) < 2000 && hero.Distance(ObjectManager.Player.Position) >= 1000)
