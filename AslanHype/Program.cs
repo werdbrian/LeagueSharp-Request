@@ -64,6 +64,11 @@ namespace AslanHype
         {
             if (Config.Item("aslan.hype.track").GetValue<bool>() && Config.Item("line.draw").GetValue<bool>())
             {
+                var direction = ObjectManager.Player.Direction.To2D().Perpendicular();
+                var playerPosition = ObjectManager.Player.Position.To2D();
+                var currentScreenPlayer = Drawing.WorldToScreen(hero.Position);
+                var currentAngel1 = 90 * (float) Math.PI / 180;
+                var currentAngel2 = (360-90) * (float) Math.PI / 180;
                 foreach (var hero in ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsEnemy && !hero.IsDead && hero.IsVisible && hero.IsValidTarget(3000)))
                 {
                     if (Config.Item("track." + hero.ChampionName).GetValue<bool>())
@@ -71,10 +76,7 @@ namespace AslanHype
                         if (hero.Distance(ObjectManager.Player.Position) <= 3000 && hero.Distance(ObjectManager.Player.Position) > 2000)
                         {
                             Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 1, Color.Green);
-                            var playerPosition = ObjectManager.Player.Position.To2D();
-                            var currentScreenPlayer = Drawing.WorldToScreen(hero.Position);
-                            var currentAngel1 = 90 * (float) Math.PI / 180;
-                            var currentAngel2 = (360-90) * (float) Math.PI / 180;
+                            
                             var conePoint1 = playerPosition + 800 * direction.Rotated(currentAngel1);
                             var conePoint2 = playerPosition + 800 * direction.Rotated(currentAngel2);
                             var conePoint13D = Drawing.WorldToScreen(conePoint1.To3D());
