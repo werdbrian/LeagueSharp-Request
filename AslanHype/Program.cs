@@ -68,7 +68,7 @@ namespace AslanHype
                 
                 var currentAngel1 = 90 * (float) Math.PI / 180;
                 var currentAngel2 = (360-90) * (float) Math.PI / 180;
-                foreach (var hero in ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsEnemy && !hero.IsDead && hero.IsVisible && hero.IsValidTarget(3000)))
+                foreach (var hero in ObjectManager.Get<Obj_AI_Hero>().Where(hero => hero.IsEnemy && !hero.IsDead && hero.IsVisible && hero.IsValidTarget(8000)))
                 {
                     if (Config.Item("track." + hero.ChampionName).GetValue<bool>())
                     {
