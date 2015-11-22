@@ -72,7 +72,7 @@ namespace AslanHype
                 {
                     if (Config.Item("track." + hero.ChampionName).GetValue<bool>())
                     {
-                        if (hero.Distance(ObjectManager.Player.Position) <= 8000 && hero.Distance(ObjectManager.Player.Position) > 1000 )
+                        if (hero.Distance(ObjectManager.Player.Position) <= 8000 && hero.Distance(ObjectManager.Player.Position) > 1500 )
                         {
                             Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 1, Color.Green);
                             var currentScreenPlayer = Drawing.WorldToScreen(hero.Position);
