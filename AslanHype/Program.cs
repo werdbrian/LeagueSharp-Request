@@ -80,7 +80,8 @@ namespace AslanHype
                             var currentScreenEnemy = Drawing.WorldToScreen(hero.Position);
                             var _line = new Vector2(currentScreenChamp.X-currentScreenEnemy.X,currentScreenChamp.Y-currentScreenEnemy.Y);
                             var _line1 = new Vector2(currentScreenEnemy.X-currentScreenChamp.X,currentScreenEnemy.Y-currentScreenChamp.Y-currentScreenChamp.Y);
-                            var heading = currentScreenEnemy.position - currentScreenChamp.position;
+                            var _line2 = Vector2.Subtract(currentScreenEnemy,currentScreenChamp);
+                           //    var heading = currentScreenEnemy.position - currentScreenChamp.position;
                             var distance = _line1.magnitude;
                             var direction = _line1 / distance;
                            // var direction = ObjectManager.Player.Direction.To2D().Perpendicular();
