@@ -79,7 +79,7 @@ namespace AslanHype
                             var currentScreenChamp = Drawing.WorldToScreen(ObjectManager.Player.Position);
                             var currentScreenEnemy = Drawing.WorldToScreen(hero.Position);
                             var _line = new Vector2(currentScreenEnemy.X-currentScreenChamp.X,currentScreenEnemy.Y-currentScreenChamp.Y);
-                            var direction = ObjectManager.Player.Direction.To2D().Perpendicular();
+                           // var direction = ObjectManager.Player.Direction.To2D().Perpendicular();
                             var direction = _line.Perpendicular();
                             var playerPosition = ObjectManager.Player.Position.To2D();
                             var conePoint1 = playerPosition + 800 * direction.Rotated(currentAngel1);
