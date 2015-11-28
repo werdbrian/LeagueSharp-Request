@@ -74,15 +74,17 @@ namespace AslanHype
                     {
                         if (hero.Distance(ObjectManager.Player.Position) <= 8000 && hero.Distance(ObjectManager.Player.Position) > 1000 )
                         {
-                            Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 2, Color.Yellow);
+                           // Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 2, Color.Yellow);
                             
                             var currentScreenChamp = Drawing.WorldToScreen(ObjectManager.Player.Position);
                             var currentScreenEnemy = Drawing.WorldToScreen(hero.Position);
                             var _line = new Vector2(currentScreenChamp.X-currentScreenEnemy.X,currentScreenChamp.Y-currentScreenEnemy.Y);
                             var _line1 = new Vector2(currentScreenEnemy.X-currentScreenChamp.X,currentScreenEnemy.Y-currentScreenChamp.Y-currentScreenChamp.Y);
-
+                            var heading = currentScreenEnemy.position - currentScreenChamp.position;
+                            var distance = heading.magnitude;
+                            var direction = heading / distance;
                            // var direction = ObjectManager.Player.Direction.To2D().Perpendicular();
-                            var direction = _line.Direction();
+                           // var direction = _line.Direction();
                             var playerPosition = ObjectManager.Player.Position.To2D();
                             var conePoint1 = playerPosition + 800 * direction.Rotated(currentAngel1);
                             var conePoint2 = playerPosition + 800 * direction.Rotated(currentAngel2);
