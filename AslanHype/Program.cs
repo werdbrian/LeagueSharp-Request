@@ -74,7 +74,7 @@ namespace AslanHype
                     {
                         if (hero.Distance(ObjectManager.Player.Position) <= 8000 && hero.Distance(ObjectManager.Player.Position) > 1000 )
                         {
-                            Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 1, Color.Green);
+                            Drawing.DrawLine(Drawing.WorldToScreen(ObjectManager.Player.Position), Drawing.WorldToScreen(hero.Position), 2, Color.Yellow);
                             
                             var currentScreenChamp = Drawing.WorldToScreen(ObjectManager.Player.Position);
                             var currentScreenEnemy = Drawing.WorldToScreen(hero.Position);
