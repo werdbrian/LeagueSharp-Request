@@ -82,9 +82,9 @@ namespace AslanHype
                             var _line1 = new Vector2(currentScreenEnemy.X-currentScreenChamp.X,currentScreenEnemy.Y-currentScreenChamp.Y-currentScreenChamp.Y);
                             var _line2 = Vector2.Subtract(currentScreenEnemy,currentScreenChamp);
                            //    var heading = currentScreenEnemy.position - currentScreenChamp.position;
-                            var distance = _line1.magnitude;
-                            var direction = _line1 / distance;
-                           // var direction = ObjectManager.Player.Direction.To2D().Perpendicular();
+                          //  var distance = _line1.magnitude;
+                          //  var direction = _line1 / distance;
+                            var direction = ObjectManager.Player.Direction.To2D().Perpendicular();
                            // var direction = _line.Direction();
                             var playerPosition = ObjectManager.Player.Position.To2D();
                             var conePoint1 = playerPosition + 800 * direction.Rotated(currentAngel1);
